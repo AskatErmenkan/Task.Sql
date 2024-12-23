@@ -34,10 +34,11 @@
 -- 17 1995 - жылдан 2005- ке чейинки машиналарадан башкаларын чыгар
         select * from cars order by year_of_issue > 1995 and  year_of_issue<2005;
 -- 18 Бир тустогу саны эн коп болгон машиналарды чыгар
-
-
-        select count(*) from cars where color > -- TODO ЧЫГАРА АЛБАЙ КОЙДУМ
-
+        select color, count(*) as count
+            from cars
+                group by color
+                    order by count desc
+                        limit 1;
 
 
 
